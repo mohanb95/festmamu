@@ -1,0 +1,18 @@
+<%include ./partials/header.ejs%>
+<%include ./partials/navbar.ejs%>
+    <title>Send email</title>
+    <div class="container-fluid" >
+		<div class="row">
+			<div class="col-md-4 col-md-offset-4" style="margin-top: 15%">
+				<form action="/forgotPassword" method="POST" >
+				  <div class="form-group">
+				    <label for="mailId">Enter registered e-mail id:</label>
+				    <input type="email" class="form-control" id="mailId" name="mailId" placeholder="Registered e-mail">
+				  </div>
+				  <button type="submit" class="btn btn-default">Reset password</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+<%include ./partials/footer.ejs%>

@@ -1,0 +1,36 @@
+        <nav class="navbar navbar-inverse navbar navm">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-purr" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a href="/" class="navbar-brand">Fest MaMu</a>
+				</div>
+				<div class="collapse navbar-collapse" id="nav-purr">
+					<ul class="nav navbar-nav">
+						<!--<li class=""><a href="/">Home</a></li>-->
+						<li class=" "><a href="/stage">Stage</a></li>
+						<li class=" "><a href="/sponsor">Sponsor</a></li>
+						<li class=" "><a href="/artist">Artists</a></li>
+						<li class=" "><a href="/merch">Merchendise</a></li>
+					</ul>
+					
+					<ul class="nav navbar-nav navbar-right">
+						<% if(!currentUser){ %>
+                        <li><a href="/register">Sign up <i class="fa fa-user-plus"></i></a></li>
+						<li><a data-toggle="modal" data-target="#login-modal" id='login'>Login <i class="fa fa-user"></i></a></li>
+                    <% } else { %>
+                    	<li><a href="/<%= currentUser.username%>/changePassword">Change Password</a></li>
+                    	<li><a href="/stage/<%= currentUser._id%>/mylistings">My Stuff</a></li>
+                        <li><a href="#"><%= currentUser.username %></a></li>
+                        <li><a href="/logout">Logout</a></li>
+                    <% } %>
+						
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<%include ./login.ejs%>

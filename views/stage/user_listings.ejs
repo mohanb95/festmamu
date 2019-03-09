@@ -1,0 +1,102 @@
+<%include ../partials/header.ejs%>
+<title>My Stage</title>
+<link rel="stylesheet" type="text/css" href="/stylesheets/stage_list.css">
+<%include ../partials/navbar.ejs%>
+    
+		<div class="container">
+		    
+			<div class="col-md-offset-3">
+				<ul class="nav nav-tabs">
+				  <li role="presentation" class="active stage"><a href="#">My Stage</a></li>
+				  <li role="presentation" class="sound"><a href="#">My Sound</a></li>
+				  <li role="presentation" class="tent"><a href="#">My Tents</a></li>
+				</ul>
+			</div>	
+		</div>	
+<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-3" id="filter">
+				<h5 class="text-center">refined search</h5>
+				<hr>
+				<div class=" ">
+					
+				</div>
+
+			</div>
+			<div class="col-md-6 main hid stage-data">
+				
+				<h1 class="text-center">My Stage listing</h1>
+				<hr>
+				<div><!--  range bubble -->
+					"range: "
+					<a class="range-bubble">
+						$10392-$29292 <i class="fa fa-times-circle close"></i>
+					</a>
+				</div>
+				<hr>
+				<%  id1=currentUser._id %>
+				<% stages.forEach(function(stage){ %>
+				    <%  id2=stage.author.id %>
+				     <% if(id1.equals(id2)){%>
+    				<div class="col-md-12" id="stage1">
+    				   
+    				    
+    				    
+    					<span>
+    						<span class="col-md-3">
+    							<a href="stage/<%= stage._id%>"><img src="http://placehold.it/350x350" class="img-responsive thumbnail"></a>
+    						</span>
+    						<span>
+    						    
+    							<h2><%= stage.Comp_Name%></h2>
+    							<h5>cost:<%=stage.cost.Cost%></h5>
+    							<p>contact:
+    								<p class="cont">
+    									<%=stage.Location.Contact1%>
+    								</p>
+    							</p>
+    							<%if(stage.Location.Contact2!=null)%>
+    							    <p class="cont"><%=stage.Location.Contact2%></p>
+    							<a href="stage/info" id="detail">for more details <i class="fa fa-caret-right"></i></a>
+    							<!--< stage._id%>-->
+    						</span>
+    					</span>
+    					
+    				</div>
+    				<% } %>
+    			<%  })%>
+    			<a href="stage/new" class="round-button ">+</a>
+    				
+			</div>
+			<div class="col-md-6 main hid sound-data" >
+				<h1 class="text-center">Sound listing</h1>
+				<a href="sound/new" class="round-button hid">+</a>
+				<hr>
+				<div><!--  range bubble -->
+					"range: "
+					<a class="range-bubble">
+						$10392-$29292 <i class="fa fa-times-circle close"></i>
+					</a>
+				</div>
+				<hr>
+			</div>
+			<div class="col-md-6 main hid tent-data" >
+				<h1 class="text-center">Tent listing</h1>
+				<a href="tent/new" class="round-button hid">+</a>
+				<hr>
+				<div><!--  range bubble -->
+					"range: "
+					<a class="range-bubble">
+						$10392-$29292 <i class="fa fa-times-circle close"></i>
+					</a>
+				</div>
+				<hr>
+			</div>
+		</div>
+	</div>
+	
+	
+	
+	<%include ../partials/script.ejs%>
+	<script type="text/javascript" src="/js/stage_list.js"></script>
+<%include ../partials/footer.ejs%>

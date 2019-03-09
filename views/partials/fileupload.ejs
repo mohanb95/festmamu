@@ -1,0 +1,141 @@
+<style>
+  .test{
+    height: 100px;
+    margin:1em;
+  }
+  #imageuploaded{
+    margin:2em;
+  }
+  .text{
+    position: absolute;
+    font-size: 21px;
+    z-index: 100;
+    color: blue;
+    margin: 30px;
+    font-weight: 600;
+  }
+  
+  .hvr-grow-shadow {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: box-shadow, transform;
+    transition-property: box-shadow, transform;
+  }
+  .hvr-grow-shadow:hover, .hvr-grow-shadow:focus, .hvr-grow-shadow:active {
+    box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+</style>
+
+      <div class="col-md-4">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <span class="glyphicon glyphicon-cloud-upload"></span>
+            <h2>image Uploader - ALPHA </h2>
+            <div class="progress">
+              <div class="progress-bar" role="progressbar"></div>
+            </div>
+            <h3 class='appe'></h3>
+            <button class="btn btn-lg upload-btn" type="button">Upload Files</button>
+            <div id="imageuploaded">
+              <input id="uploadedfiles" type="text" name="uploadedfiles"  style="display:none;">
+              <input id="profile" type="text"  style="display:none;" name='profile_image' required='true'>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <input id="upload-input" type="file" name="uploads[]" multiple="multiple" style="display:none;">
+  
+  <script type="text/javascript">
+      $('.upload-btn').on('click', function (){
+        $('#upload-input').click();
+        $('.progress-bar').text('0%');
+        $('.progress-bar').width('0%');
+      });
+      
+      $('#upload-input').on('change', function(){
+      
+        var files = $(this).get(0).files;
+      
+        if (files.length > 0){
+          // create a FormData object which will be sent as the data payload in the
+          // AJAX request
+          var formData = new FormData();
+      
+          // loop through all the selected files and add them to the formData object
+          $.each(files, function(key, value) {
+              formData.append('images', value);
+          });
+          console.log(formData);
+          $.ajax({
+            url: '/artist/upload',
+            type: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            dataType: 'json',
+            success: function(data){
+                console.log(data);
+                 var uploadedfiles=[];
+                $.each(data,function(key,value){
+                  $('#imageuploaded').append("<div class='col-xs-4 test hvr-grow-shadow' style='background:url(\"https://s3-us-west-2.amazonaws.com/festmamu/"+value+"\");background-size: cover;'></div>");
+                  uploadedfiles.push(value);            
+                });
+                $('.appe').text("select a profile image from the uploaded files");
+                 var flag=false;
+                  $('.test').on('click',function(){
+                    if(!flag){
+                      $(this).html("<span class='text'>Profile Image</span>");
+                      flag=true;
+                      var stra = $(this).css('background-image');
+                      stra = stra.replace('url(','').replace(')','');
+                      console.log(stra);
+                      $('#profile').val(stra);
+                    }
+                  });
+                $('#uploadedfiles').val(uploadedfiles);
+                  $('.progress-bar').html('Done');
+            },
+            xhr: function() {
+              // create an XMLHttpRequest
+              var xhr = new XMLHttpRequest();
+      
+              // listen to the 'progress' event
+              xhr.upload.addEventListener('progress', function(evt) {
+      
+                if (evt.lengthComputable) {
+                  // calculate the percentage of upload completed
+                  var percentComplete = evt.loaded / evt.total;
+                  percentComplete = parseInt(percentComplete * 100);
+      
+                  // update the Bootstrap progress bar with the new percentage
+                  $('.progress-bar').text(percentComplete + '%');
+                  $('.progress-bar').width(percentComplete + '%');
+      
+                  // once the upload reaches 100%, set the progress bar text to done
+      
+      
+                }
+      
+              }, false);
+      
+              return xhr;
+            }
+          });
+      
+        }
+      });
+  </script>
+  
+ 

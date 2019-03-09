@@ -1,0 +1,206 @@
+.parallelogram1 {
+	width: 0;
+	height: 0;
+	border-top: 50px solid white;
+	border-left: 201px solid transparent;
+	border-bottom: 300px solid transparent;
+}
+.para{
+  /*width: 100%;*/
+  /*height: 100%;*/
+  /*border-top: 0px solid white;
+  border-left: 0px solid transparent;
+  border-right: 700px solid transparent;
+  border-bottom: 107px solid transparent;*/
+  transition: 3s ease all;
+}
+
+.bottom1 {
+	width: 0;
+	height: 0;
+	border-top: 50px solid transparent;
+    border-left: 201px solid white;
+
+}
+.parallelogram2 {
+	width: 0;
+	height: 0;
+	border-top: 50px solid white;
+	border-left: 201px solid transparent;
+	border-bottom: 300px solid transparent;
+	
+}
+.bottom2 {
+	width: 0;
+	height: 0;
+	border-top: 50px solid transparent;
+    border-left: 201px solid white;
+
+}
+.fl{
+	float: left;
+	background-size: contain;
+	margin-right: 4px;
+
+}
+.dj-back{
+	background: transparent url("http://neielisrael.com/wp-content/uploads/2014/10/ImprovTempe-4.jpg") no-repeat scroll -22px top;
+	background-size: cover;
+	transition: 1s;
+
+}
+.dj-back2{
+	background: transparent url("https://lh3.googleusercontent.com/K7Ovtx4sq9i09qUdYoAi8Ho-cnk4MljIoOgsyy2FTAk_pTRZh8Bo9vmdHN-7DGwBBA=w300") no-repeat scroll -22px top;
+	background-size: cover;
+
+}
+.band-back{
+	background: transparent url("http://neielisrael.com/wp-content/uploads/2014/10/ImprovTempe-4.jpg") no-repeat scroll -106px top;
+	background-size: cover;
+}
+.band-back2{
+	background: transparent url("http://image.shutterstock.com/z/stock-photo-clip-art-illustration-of-a-rock-band-41600053.jpg") no-repeat scroll -106px top;
+	background-size: cover;
+}
+.stand-back{
+	background: transparent url("http://neielisrael.com/wp-content/uploads/2014/10/ImprovTempe-4.jpg") no-repeat scroll -297px top;
+	background-size: cover;
+}
+.stand-back2{
+	background: transparent url("http://g03.a.alicdn.com/kf/HTB1bgBsIXXXXXcjXpXXq6xXFXXXy/New-Arrival-Professional-Classical-Vintage-font-b-Retro-b-font-Microphone-with-Dynamic-Antique-Ancient-Jazz.jpg") no-repeat scroll -118px 21px;
+	background-size: cover;
+}
+.head-back{
+	background: transparent url("http://neielisrael.com/wp-content/uploads/2014/10/ImprovTempe-4.jpg") no-repeat scroll -400px top;
+	background-size: cover;
+}
+.head-back2{
+	background: transparent url("http://www.davibemag.com/wp-content/uploads/2015/08/Music-Microphone-Wallpaper-Free-Picture.jpg") no-repeat scroll -201px 30px;
+	background-size: cover;
+}
+.options-main{
+	/*background: url("http://neielisrael.com/wp-content/uploads/2014/10/ImprovTempe-4.jpg");
+	background-size: cover;*/
+	margin-left: 10%;
+}
+.name{
+	background: url("http://neielisrael.com/wp-content/uploads/2014/10/ImprovTempe-4.jpg");
+	font-size: 3em; 
+	font-family: 'Lora', serif;
+}
+.fliped{
+	transition: 1s;
+	transform: rotateY(360deg);
+}
+
+.hvr-float-shadow {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+.hvr-float-shadow:before {
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+  content: '';
+  top: 100%;
+  left: 5%;
+  height: 10px;
+  width: 90%;
+  opacity: 0;
+  background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
+  /* W3C */
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform, opacity;
+  transition-property: transform, opacity;
+}
+.hvr-float-shadow:hover, .hvr-float-shadow:focus, .hvr-float-shadow:active {
+  -webkit-transform: translateY(-10px);
+  transform: translateY(-10px);
+  /* move the element up by 5px */
+}
+.hvr-float-shadow:hover:before, .hvr-float-shadow:focus:before, .hvr-float-shadow:active:before {
+  opacity: 1;
+  -webkit-transform: translateY(10px);
+  transform: translateY(10px);
+  /* move the element down by 5px (it will stay in place because it's attached to the element that also moves up 5px) */
+}
+.clip-text {
+    font-size: 3em;
+    font-weight: bold;
+    line-height: 1;
+    position: relative;
+    /*left: -201px;*/
+    /*top: 284px;*/
+    display: inline-block;
+    /*margin: .25em;
+    padding: .5em .75em;*/
+    /*text-align: center;*/
+    /* Color fallback */
+    color: #fff;
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+}
+
+/*.clip-text:before,
+.clip-text:after {
+    position: absolute;
+    content: '';
+}*/
+
+/* Background */
+.clip-text:before {
+    z-index: -2;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: inherit;
+}
+
+/* Text Background (black zone) */
+.clip-text:after {
+    position: absolute;
+    z-index: -1;
+    /*top: .125em;
+    right: .125em;
+    bottom: .125em;
+    left: .125em;*/
+    background-color: #000;
+}
+
+/* Change the background position to display letter when the black zone isn't here */
+.clip-text--no-textzone:before {
+    background-position: -.65em 0;
+}
+
+.clip-text--no-textzone:after {
+    content: none;
+}
+.para{
+  background:white;
+}
+
+.card-image {
+ height:50%;
+}
+
+form{
+  margin-top: 4%;
+}
+.card{
+  height: 400px;
+}

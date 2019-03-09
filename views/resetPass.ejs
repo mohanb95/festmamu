@@ -1,0 +1,22 @@
+<%include ./partials/header.ejs%>
+<%include ./partials/navbar.ejs%>
+    <title>Send email</title>
+    <div class="container-fluid" >
+		<div class="row">
+			<div class="col-md-4 col-md-offset-4" style="margin-top: 15%">
+				<form action="/resetPass/<%=currUser.resetPasswordToken%>" method="POST" >
+				  <div class="form-group">
+				    <label for="pass">New Password:</label>
+				    <input type="password" class="form-control" id="pass" name="pass" placeholder="Enter new password">
+				  </div>
+				  <div class="form-group">
+				    <label for="pass1">Confirm Password:</label>
+				    <input type="password" class="form-control" id="pass1" name="pass1" placeholder="Re-enter password">
+				  </div>
+				  <button type="submit" class="btn btn-default">Confirm Change</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+<%include ./partials/footer.ejs%>

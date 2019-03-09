@@ -1,0 +1,180 @@
+<%include ./partials/header.ejs%>
+<%include ./partials/navbar.ejs%>
+    <title>signup</title>
+    <div class="container-fluid">
+		<!--<div class="row">-->
+			<!--<div class="col-md-6 col-md-offset-3" style="margin-top: 100px">-->
+				<form name="SignUpForm" id="SignUpForm" class=" form-horizontal" action="/register" method="POST">
+					<!--<legend>Sign Up Form</legend>-->
+					
+	
+
+					
+					<!--First Name-->
+					<div class="form-group">
+				    <label class="col-md-4 control-label" for="FirstName"> First Name</label>
+				    <div class="col-md-4 inputGroupContainer">
+  					<div class="input-group">
+  					<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+				    <input type="text" class="form-control" 
+				    id="FirstName" name="FirstName" placeholder="First Name">
+				  	</div>
+				  	</div>
+				  	</div>
+				  	
+				  	<!--Last Name-->
+				  	<div class="form-group">
+				    <label class="col-md-4 control-label" for="LastName"> Last Name</label>
+				    <div class="col-md-4 inputGroupContainer">
+  					<div class="input-group">
+  					<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+				    <input type="text" class="form-control" 
+				    id="LastName" name="LastName" placeholder="Last Name">
+				  	</div>
+				  	</div>
+				  	</div>
+				  	
+				  	<!--Email-->
+				  	<div class="form-group">
+				    <label for="email" class="col-md-4 control-label">Email</label>
+				    <div class="col-md-4 inputGroupContainer">
+    				<div class="input-group">
+        			<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+				    <input type="email" class="form-control" 
+				    id="email" name="email" placeholder="Your Email"
+				    oninvalid="setCustomValidity('Invalid Email')">
+				  	</div>
+				  	</div>
+				  	</div>
+				  	
+				  	<!--Username-->
+				  <div class="form-group">
+				    <label for="username" class="col-md-4 control-label">Username:</label>
+				    <div class="col-md-4 inputGroupContainer">
+    				<div class="input-group">
+        			<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+				    <input type="text" class="form-control" id="username" 
+				    name="username" placeholder="user name">
+				    <span id="username_error"></span>
+				  </div>
+				  </div>
+				  	</div>
+				  
+				  <!--Password-->
+				  <div class="form-group">
+				    <label class="col-md-4 control-label" for="pass_confirmation">Password</label>
+				    <!--<div class="col-md-4 inputGroupContainer">-->
+				    <div class="col-md-4">
+    				<!--<div class="input-group">-->
+        			<!--<span class="input-group-addon"><i class="glyphicon glyphicon-user-key"></i></span>-->
+				    <input type="password" name="password_confirmation" data-validation="strength" data-validation-strength="2"
+				    placeholder="Password" class="form-control" >
+				  </div>
+				  </div>
+				  <!--Confirm Password-->
+				  <div class="form-group">
+				    <label class="col-md-4 control-label" for="pass">Re-enter Password</label>
+				    <div class="col-md-4">
+				    <input type="password" name="password" id="password" data-validation="confirmation"
+				    placeholder="Re-enter Password" class="form-control" >
+				  </div>
+				  </div>
+				  
+				  <!--Address-->
+				  <div class="form-group">
+				  	<label class="col-md-4 control-label">Address</label>  
+				  	<div class="col-md-4 inputGroupContainer">
+    				<div class="input-group">
+        			<span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+  					<input id="address" name="address" placeholder="Address" class="form-control" type="text">
+   					</div>
+  					</div>
+				  </div>
+
+				 <!-- City -->
+				  <div class="form-group">
+				  	<label class="col-md-4 control-label">City</label>  
+				  	<div class="col-md-4 inputGroupContainer">
+    				<div class="input-group">
+        			<span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+  					<input id="city" name="city" placeholder="City" class="form-control" type="text">
+   					</div>
+  					</div>
+				  </div>
+
+ 				<!--Select State -->
+   				<div class="form-group"> 
+				<label class="col-md-4 control-label">State</label>
+    			<div class="col-md-4 selectContainer">
+    			<div class="input-group">
+				<span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+    			<select id="state" name="state" class="form-control selectpicker" >
+      				<option value=" " >Please select your state</option>
+      				<option>Delhi</option>
+      				<option>Maharashtra</option>
+      				<option>Gujarat</option>
+      				<option>Karnataka</option>
+      				<option>Andhra Pradesh</option>
+      				<option>Tamil Nadu</option>
+      				<option>Telangana</option>
+      				<option>Kerala</option>
+    			</select>
+  				</div>
+				</div>
+				</div>
+
+				<!-- Pin Code-->
+				<div class="form-group">
+  				<label class="col-md-4 control-label">Pin Code</label>  
+    			<div class="col-md-4 inputGroupContainer">
+    			<div class="input-group">
+        		<span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+  				<input id="pin" name="pin" placeholder="Pin Code" class="form-control"  type="text">
+    			</div>
+				</div>
+				</div>
+				
+				<!--Phone-->
+				<div class="form-group">
+  				<label class="col-md-4 control-label">Phone #</label>  
+    			<div class="col-md-4 inputGroupContainer">
+    			<div class="input-group">
+        		<span class="input-group-addon"><i>+91</i></span>
+  				<input id="phone" name="phone" class="form-control" type="text">
+    			</div>
+  				</div>
+				</div>
+
+				<!--Submit-->
+				<div class="form-group">
+  				<label class="col-md-4 control-label"></label>
+  				<div class="col-md-4">
+    			<button name="submitButton" type="submit" class="btn btn-success">Sign Up</button>
+  				</div>
+				</div>
+				  
+				</form>
+			</div>
+	
+	
+<%include ./partials/script.ejs%>
+	
+<script>
+$.validate({
+  modules : 'security',
+  onModulesLoaded : function() {
+    var optionalConfig = {
+      fontSize: '12pt',
+      padding: '4px',
+      bad : 'Very bad',
+      weak : 'Weak',
+      good : 'Good',
+      strong : 'Strong'
+    };
+
+    $('input[name="pass"]').displayPasswordStrength(optionalConfig);
+  }
+});
+</script>
+<script type="text/javascript" src="/js/validate_Signup.js"></script>
+<%include ./partials/footer.ejs%>

@@ -1,0 +1,40 @@
+<% include ../partials/header.ejs %>
+<% include ../partials/navbar.ejs %>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/stage_new.css">
+    <div class="container">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3 fr">
+				<form action="/stage" method="POST">
+					<div class="form-group" id="companyName">
+						<label for="NameOfCompany">Name Of Company:</label>
+						<input type="text" class="form-control" name="Cname" placeholder="Company name"></input>
+					</div>	
+					<div class="form-group">
+						<label for="cost">cost for stage:</label>
+						<input type="text" class="form-control" name="CostPackage" placeholder="Rs. per square ft   "></input>
+					</div>		
+					<div class="form-group">
+						<label for="address">Address of Office:</label>
+						<input type="text" class="form-control" name="street1" placeholder="Address Line1"></input>
+						<input type="text" class="form-control" name="street2" placeholder="Address Line2"></input>
+						<input type="text" class="form-control" name="city" placeholder="City"></input>
+						<input type="text" class="form-control" name="state" placeholder="State"></input>
+						
+					</div>
+					<div class="form-group">
+						<label for="ContactInfo">Contact Info:</label>
+						<input type="text" class="form-control" name="contact1" placeholder="Phone Number 1"></input>
+						<input type="text" class="form-control" name="contact2" placeholder="Phone Number 2"></input>
+					</div>
+					<div class="form-group">
+						<label for="AdditionalInfo">Description About The Stage</label>
+						<input type="text" class="form-control" name="dimensions" placeholder="Dimensions of the stage"></input>
+						<input type="text" class="form-control" name="types" placeholder="different types of stages that you provide"></input>
+						
+					</div>
+					<button type="submit" class="btn btn-default">Submit</button>
+				</form>
+			</div>	
+		</div>	
+	</div>
+<%include ../partials/footer.ejs%>

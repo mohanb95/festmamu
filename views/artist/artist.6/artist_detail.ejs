@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html ng-app='artist'>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Shadows+Into+Light|Architects+Daughter|Oswald:400,700|Lora:700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="museosans_500_macroman/stylesheet.css">
+	<script   src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
+	<!-- <link rel="stylesheet" type="text/css" href="artist-main.css"> -->
+	<title>Artists details</title>
+</head>
+<body>
+<link rel="stylesheet" type="text/css" href="/artist_detail.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<div class="container-fluid">
+<% var link1=(artist.image_link).split(","),i ; %>
+
+<%
+artist.profile = artist.profile.replace('"','').replace('"','');
+%>
+	<nav class="navbar navbar-default navbar-fixed-top hd" ng-controller='artist_nav'>
+		<div class="container-fluid">
+		    <div class="navbar-header">
+		      <a class="navbar-brand" href="#" style="padding-top:0px;">
+		        <img align="left" class="thumbnail nav-img" src=<%= artist.profile %> alt="Profile image example"/>
+		      </a>
+		    </div>
+		    <div class="nav navbar-nav">
+		    	<div  id="name"><%= artist.StageName%></div>
+		    </div>
+		    <div class="nav navbar-nav msg hd a">
+		    	<div style="margin: 10px 15px 11px 15px;font-size: 20px;">
+    				<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+    			</div>
+		    </div>
+		    <div class="nav navbar-nav call hd a">
+		    	<div style="margin: 10px 15px 11px 15px;font-size: 20px;">
+    				<span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
+    			</div>
+		    </div>
+		    <!-- <div class=""> -->
+		    	<div class="col-md-6 nav navbar-nav nB hd">
+							<div class="col-md-2 option text-center select togg">
+								<a href="#" id="Overview" class="nav-btn"><span class="btn">Overview </span></a>
+							</div>
+							<div class="col-md-2 option text-center togg">
+								<a href="#" id="Music" class="nav-btn"><span class="btn">Music </span></a>
+							</div>
+							<div class="col-md-2 option text-center togg">
+								<a href="#" id="Video" class="nav-btn"><span class="btn">Video </span></a>
+							</div>
+						</div>
+		    <!-- </div> -->
+		    <ul class="nav navbar-nav navbar-right">
+				<% if(!currentUser){ %>
+                <li><a href="/register">Sign up <i class="fa fa-user-plus"></i></a></li>
+				<li><a data-toggle="modal" data-target="#login-modal" id='login'>Login <i class="fa fa-user"></i></a></li>
+            <% } else { %>
+            	<li><a href="/<%= currentUser.username%>/changePassword">Change Password</a></li>
+            	<li><a href="/stage/<%= currentUser._id%>/mylistings">My Stuff</a></li>
+                <li><a href="#"><%= currentUser.username %></a></li>
+                <li><a href="/logout">Logout</a></li>
+            <% } %>
+		  </ul>
+		  </div>
+	</nav>
+<%include ../../partials/login.ejs%>
+	
+
+	<!-- ====================================================================================================================== -->
+	<div id="overview">
+	<div class="row">
+		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+			<!-- Indicators -->
+			<ol class="carousel-indicators">
+				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				<% for(i=1;i<link1.length;i++){ %>
+				<li data-target="#myCarousel" data-slide-to="<%= i %>"></li>
+				<% } %>
+			</ol>
+
+			<!-- Wrapper for slides -->
+			<div class="carousel-inner" role="listbox" style=" width:100%; height: 40%;">
+				<div class="item active">
+					<img src="https://s3-us-west-2.amazonaws.com/festmamu/<%= link1[0] %>">
+				</div>
+				<% for(i=1;i<link1.length;i++){ %>
+				<div class="item">
+					<img src="https://s3-us-west-2.amazonaws.com/festmamu/<%= link1[i] %>">
+				</div>
+				<% } %>
+				<div class="carousel-caption">
+					<div id="trigger"></div>
+						<h2 class= "main-name"><%= artist.StageName %></h2>
+					</div>
+				</div>
+			</div>
+			<div class="row" style="margin-top: 4px ">
+				<div class="col-md-3 col-xs-3" style="border-right: 1px solid black;margin: 1px 0px 0px 33px;">
+					<div class="fb-profile row">
+						<img align="left" class="fb-image-profile thumbnail" src=<%= artist.profile %> alt="Profile image example"/>
+					<div class="fb-profile-text">
+					<h2><%= artist.StageName %></h2>
+					<% var exp=2017-artist.Year %>
+					<p><%= exp %> years in the field</p>
+					<script src="https://apis.google.com/js/platform.js"></script>
+					<div class="g-ytsubscribe" data-channel="GoogleDevelopers" data-layout="default" data-count="default"></div>
+					<iframe src="https://www.facebook.com/plugins/like.php?href=<%= artist.facebook %>&width=124&layout=button_count&action=like&size=small&show_faces=true&share=true&height=46&appId" width="124" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+				</div>
+			</div>
+			<div class="col-md-offset-1">
+				<p>costing: Rs.<%= artist.price_per_hour %></p>
+			</div>
+		</div>
+		<div class="col-md-6 col-md-offset-1 col-xs-6 col-xs-offset-1">
+			<h4><%= artist.TagLine %></h4>
+			<div>
+				<h4><i class="material-icons left">album</i> prefered music played</h4>
+				<ul>
+					<% var genres=artist.genre %>
+					<% genres.forEach(function(genre){ %>
+					<li><%= genre %></li>
+					<% }); %>
+				</ul>		
+			</div>
+		</div>
+	</div>
+	<hr>
+	<div class="row">
+		<div class="col-md-3 col-xs-3 Overview">
+			<h3>Info On Artist</h3>
+			<div>
+				<h5><%= artist.Description %></h5>
+			</div>
+			<hr style="background-color: white">
+			<div>
+				contact Them by:
+				<p>
+					<button class="btn btn-info"><i class="fa fa-comments" aria-hidden="true"></i>message</button>
+				</p>
+			</div>
+			<hr style="background-color: white">
+			<h4>Recent gigs:</h4>
+			<div>
+				<ul>
+					<li>somewhere</li>
+				</ul>
+			</div>
+			<div>
+				<h4><i class="material-icons left">album</i> Music Played</h4>
+				<ul>
+					<% var genres=artist.genre %>
+					<% genres.forEach(function(genre){ %>
+					<li><%= genre %></li>
+					<% }); %>
+				</ul>	
+			</div>
+		</div>
+		<div class="col-md-8 col-xs-8 soundcloudWidget">
+			<iframe id="sc-widget" src="https://w.soundcloud.com/player/?url=<%=artist.soundcloud%>" width="100%" height="100%" scrolling="no" frameborder="no"></iframe>		
+		</div>
+		<div class="container-fluid">
+			<div class="row" style="margin-top: 20px;">
+				<div class="col-xs-4" style="border-right:2px solid black;">
+					<div class="col-md-3">
+						<div class="row">
+							<div class="col-md-12 col-xs-12">
+								<h1>FAQ</h1>
+								<ol>
+									<li>what is some thing?</li>
+								</ol>
+							</div>
+						</div>	
+					</div>		
+				</div>
+				<div class='col-xs-4' style="border-left:1px solid black;">
+					<script type="text/javascript" src="/js/rating.min.js"></script>
+					<%include ../../partials/comments.ejs %>
+					<script type="text/javascript" src="/js/artist_comments.js"></script>
+				</div>
+			</div>
+		</div>		
+	</div>
+</div>
+</div>
+	<!-- ================================================================================================================================================ -->	
+
+
+
+
+
+<div id="music" style="display: none;">
+	<div class="container-fluid" style="margin-top:50px">
+		<div class="row">
+			<div class="col-xs-9" style="height: 500px">
+				<iframe id="sc-widget" src="https://w.soundcloud.com/player/?url=<%=artist.soundcloud%>" width="100%" height="100%" scrolling="no" frameborder="no"></iframe>				 
+			</div>
+			<div class="col-xs-3" style="padding: 0px;">
+				<div style="padding: 25%; height: 30%; background-color: grey">
+					Rating Block
+				</div>
+				<div class="Overview" style="padding: 0px; height: 70%">
+					<h3>Info On Artist</h3>
+					<div>
+						<h5>This band was formed on bla bla bla.</h5>
+					</div>
+					<hr style="background-color: white">
+					<div>
+						contact Them by:
+						<p>
+							<button>message</button>
+						</p>
+					</div>
+					<hr style="background-color: white">
+					<div>
+						<h4><i class="material-icons left">album</i> Music Played</h4>
+						<ul>
+							<li>bla</li>
+							<li>bla</li>
+						</ul>	
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<h1>comments</h1>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+	
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.0/jquery.waypoints.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.0/shortcuts/inview.min.js"></script>
+	
+	<script src="https://cdn.jsdelivr.net/scrollreveal.js/3.1.4/scrollreveal.min.js"></script>
+	<!-- <script type="text/javascript" src="js/star-rating.min.js"></script> -->
+	<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script> -->
+	<script src="https://apis.google.com/js/platform.js"></script>
+	<script type="text/javascript" src="https://w.soundcloud.com/player/api.js"></script>
+	<script type="text/javascript" src="/artist_detail.js"></script>
+<%include ../../partials/footer.ejs%>

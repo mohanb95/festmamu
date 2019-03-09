@@ -1,0 +1,288 @@
+<% include ../partials/header%>
+<%include ../partials/navbar%>
+<link rel="stylesheet" type="text/css" href="/stylesheets/artist.css">
+<style>
+	.modal-dialog{
+		width:100%;
+	}
+</style>
+<div class="container-fluid" style="height: 500px; margin-top: 5%">
+		<div class="row ">
+			<div class="col-md-9 col-xs-12 col-md-offset-2 ">
+				<div>
+					<a href="#" onclick="navigate('dj');">
+					<div class="fl hvr-float-shadow  dj" style="position: relative;top:-300px">
+						<div class="dj-back">
+							<div class="parallelogram1"></div>
+							<div class="bottom1"></div>
+						</div>
+						<div class="name clip-text" style="padding-left:1.2em">
+								DJ
+							</div>
+					</div></a>
+					
+				</div>
+				<div>
+				<a href="#" onclick="navigate('band');">
+					<div class="band fl hvr-float-shadow" style="position: relative;top: 273px;">
+						<div class="band-back">
+							<div class="parallelogram2" ></div>
+							<div class="bottom2"></div>
+						</div>
+						<div class="name clip-text" style="padding-left:1em">
+							Band						
+						</div>
+					</div>
+				</a>	
+				</div>
+				<div>
+				<a href="#" onclick="navigate('standup');">
+					<div class="stand fl hvr-float-shadow" style="position: relative;top: -300px;">
+						<div class="stand-back">
+							<div class="parallelogram1" ></div>
+							<div class="bottom1"></div>
+						</div>
+						<div class="name clip-text">
+							Stand-Up					
+						</div>
+					</div>
+				</a>
+				</div>
+				<div>
+				<a href="#" onclick="navigate('headliner');">
+					<div class="head fl hvr-float-shadow" style="position: relative;top: 373px;">
+						<div class="head-back">
+							<div class="parallelogram2" ></div>
+							<div class="bottom2"></div>
+						</div>
+						<div class="name clip-text" style="font-size: 2.8em">
+							Headliners				
+						</div>
+					</div>
+				</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css"  media="screen,projection"/>
+	<div style="margin-top:15em;">
+	<!-- dj cards should be displayed from here -->
+	<div class="container-fluid" >
+		<div class="row" id="dj" style="height: 100%">
+			<div class="dj-header">
+				<div class="hvr-float-shadow col m12 s12" >
+					<div class="dj-back2">
+						<div class="para">
+							<h1 class="text-center">DJ</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+			<a class="btn-floating btn-large waves-effect waves-light red" 
+				href="/artist/dj/new"
+				style="float:left; margin:2%;">
+				<i class="material-icons">add</i></a>
+				<% allArtists.forEach(function(dj){ if(dj.Type=="DJ"){ %>
+			<div class="card col m3 s10" style="margin-left:1%; ">
+    			<div class="card-image waves-effect waves-block waves-light" >
+    				<% var link1=(dj.image_link).split(",") ;
+    				var randomNumber = Math.floor(Math.random() * link1.length); %> 
+      				<img class="activator" src="https://s3-us-west-2.amazonaws.com/festmamu/<%= link1[randomNumber] %>">
+    			</div>
+ 
+    			<div class="card-content">
+      				<span class="card-title activator grey-text text-darken-4"><%= dj.StageName %><i class="material-icons right">more_vert</i></span>
+      				<div><h6><%= dj.TagLine %></h6> <span style="float:right;">Pricing/hour: <%= dj.price_per_hour %></span></div>
+      				<p><a href="/artist/test/<%= dj._id %>">Link to Profile</a></p>
+    			</div>
+    			<div class="card-reveal">
+      				<span class="card-title grey-text text-darken-4"><%= dj.StageName %><i class="material-icons right">close</i></span>
+      				<p><%= dj.Description %></p>
+      				<p><i class="fa fa-inr" aria-hidden="true"></i>Rs. <%= dj.price_per_hour %> per hour</p>
+      				<% var exp=2017-dj.Year %>
+      				<p><i class="fa fa-calendar-o" aria-hidden="true"></i><%= exp %> years in the field</p>
+      				<p><i class="" aria-hidden="true"></i><%= dj.experience %> stage performances</p>
+      				<p><i class="material-icons left">album</i> 
+      					Preferred music genres: 
+      					<ul>
+      						<% var genres=dj.genre %>
+							<% genres.forEach(function(genre){ %>
+							<li><%= genre %></li>
+				    		<% }) %>
+      					</ul>
+      				</p>
+      				<p><a href="/artist/dj/<%= dj._id %>">Link to Profile</a></p>
+    			</div>
+  			</div>
+  		<% } }) %>
+  		</div>
+		<!-- end of dj cards display -->
+		<!--  -->
+		<!-- begin of Band cards display -->
+		<div class="row" id="band" style="height: 100%;">
+			<div class="band-header">
+				<div class="hvr-float-shadow col m12 s12" >
+					<div class="band-back">
+						<div class="para">
+							<h1 class="text-center">Bands</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+			<a class="btn-floating btn-large waves-effect waves-light red" 
+				href="/artist/band/new"
+				style="float:left; margin:2%;">
+				<i class="material-icons">add</i></a>
+				<% allArtists.forEach(function(band){ if(band.Type=="BAND"){ %>
+			<div class="card col m3 s10" style="margin-left:1%;">
+    			<div class="card-image waves-effect waves-block waves-light">
+    				<% var link1=(band.image_link).split(",") ;
+    				var randomNumber = Math.floor(Math.random() * link1.length); %> 
+      				<img class="activator" src="https://s3-us-west-2.amazonaws.com/festmamu/<%= link1[randomNumber] %>">
+    			</div>
+ 
+    			<div class="card-content">
+      				<span class="card-title activator grey-text text-darken-4"><%= band.StageName %><i class="material-icons right">more_vert</i></span>
+      				<div><h6><%= band.TagLine %></h6> <span style="float:right;">Pricing/hour: <%= band.price_per_hour %></span></div>
+      				<p><a href="/artist/test/<%= band._id %>">Link to Profile</a></p>
+    			</div>
+    			<div class="card-reveal">
+      				<span class="card-title grey-text text-darken-4"><%= band.StageName %><i class="material-icons right">close</i></span>
+      				<p><%= band.Description %></p>
+      				<p><i class="fa fa-inr" aria-hidden="true"></i>Rs. <%= band.price_per_hour %> per hour</p>
+      				<% var exp=2017-band.Year %>
+      				<p><i class="fa fa-calendar-o" aria-hidden="true"></i><%= exp %> years in the field</p>
+      				<p><i class="" aria-hidden="true"></i><%= band.experience %> stage performances</p>
+      				<p><i class="material-icons left">album</i> 
+      					Preferred music genres: 
+      					<ul>
+      						<% var genres=band.genre %>
+							<% genres.forEach(function(genre){ %>
+							<li><%= genre %></li>
+				    		<% }) %>
+      					</ul>
+      				</p>
+      				<p><a href="/artist/band/<%= band._id %>">Link to Profile</a></p>
+    			</div>
+  			</div>
+  		<% } }) %>
+  		</div>
+  		<!-- end of BAND cards display -->
+		<!--  -->
+		<!-- begin of STAND UP cards display -->
+  		<div class="row" id="standup" style="height: 100%;">
+			<div class="band-header">
+				<div class="hvr-float-shadow col m12 s12" >
+					<div class="band-back">
+						<div class="para">
+							<h1 class="text-center">Stand-Up</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+			<a class="btn-floating btn-large waves-effect waves-light red" 
+				href="/artist/standup/new"
+				style="float:left; margin:2%;">
+				<i class="material-icons">add</i></a>
+				<% allArtists.forEach(function(standup){ if(standup.Type=="STAND_UP"){ %>
+			<div class="card col m3 s10" style="margin-left:1%;">
+    			<div class="card-image waves-effect waves-block waves-light">
+    				<% var link1=(standup.image_link).split(",") ;
+    				var randomNumber = Math.floor(Math.random() * link1.length); %> 
+      				<img class="activator" src="https://s3-us-west-2.amazonaws.com/festmamu/<%= link1[randomNumber] %>">
+    			</div>
+ 
+    			<div class="card-content">
+      				<span class="card-title activator grey-text text-darken-4"><%= standup.StageName %><i class="material-icons right">more_vert</i></span>
+      				<div><h6><%= standup.TagLine %></h6> <span style="float:right;">Pricing/hour: <%= standup.price_per_hour %></span></div>
+      				<p><a href="/artist/test/<%= standup._id %>">Link to Profile</a></p>
+    			</div>
+    			<div class="card-reveal">
+      				<span class="card-title grey-text text-darken-4"><%= standup.StageName %><i class="material-icons right">close</i></span>
+      				<p><%= standup.Description %></p>
+      				<p><i class="fa fa-inr" aria-hidden="true"></i>Rs. <%= standup.price_per_hour %> per hour</p>
+      				<% var exp=2017-standup.Year %>
+      				<p><i class="fa fa-calendar-o" aria-hidden="true"></i><%= exp %> years in the field</p>
+      				<p><i class="" aria-hidden="true"></i><%= standup.experience %> stage performances</p>
+      				<p><i class="material-icons left">album</i> 
+      					Preferred music genres: 
+      					<ul>
+      						<% var genres=standup.genre %>
+							<% genres.forEach(function(genre){ %>
+							<li><%= genre %></li>
+				    		<% }) %>
+      					</ul>
+      				</p>
+      				<p><a href="/artist/test/<%= standup._id %>">Link to Profile</a></p>
+    			</div>
+  			</div>
+  		<% } }) %>
+  		</div>		
+		<!-- end of STAND UP cards display -->
+		<!--  -->
+		<!-- begin of HEADLINERS cards display -->
+		<div class="row" id="headliner" style="height: 100%;">
+			<div class="band-header">
+				<div class="hvr-float-shadow col m12 s12" >
+					<div class="band-back">
+						<div class="para">
+							<h1 class="text-center">Headliners</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+			<a class="btn-floating btn-large waves-effect waves-light red" 
+				href="/artist/headliner/new"
+				style="float:left; margin:2%;">
+				<i class="material-icons">add</i></a>
+				<% allArtists.forEach(function(headliner){ if(headliner.Type=="HEADLINER"){ %>
+			<div class="card col m3 s10" style="margin-left:1%;">
+    			<div class="card-image waves-effect waves-block waves-light">
+    				<% var link1=(headliner.image_link).split(",") ;
+    				var randomNumber = Math.floor(Math.random() * link1.length); %> 
+      				<img class="activator" src="https://s3-us-west-2.amazonaws.com/festmamu/<%= link1[randomNumber] %>">
+    			</div>
+ 
+    			<div class="card-content">
+      				<span class="card-title activator grey-text text-darken-4"><%= headliner.StageName %><i class="material-icons right">more_vert</i></span>
+      				<div><h6><%= headliner.TagLine %></h6> <span style="float:right;">Pricing/hour: <%= headliner.price_per_hour %></span></div>
+      				<p><a href="/artist/headliner/<%= headliner._id %>">Link to Profile</a></p>
+    			</div>
+    			<div class="card-reveal">
+      				<span class="card-title grey-text text-darken-4"><%= headliner.StageName %><i class="material-icons right">close</i></span>
+      				<p><%= headliner.Description %></p>
+      				<p><i class="fa fa-inr" aria-hidden="true"></i>Rs. <%= headliner.price_per_hour %> per hour</p>
+      				<% var exp=2017-headliner.Year %>
+      				<p><i class="fa fa-calendar-o" aria-hidden="true"></i><%= exp %> years in the field</p>
+      				<p><i class="" aria-hidden="true"></i><%= headliner.experience %> stage performances</p>
+      				<p><a href="/artist/headliner/<%= headliner._id %>">Link to Profile</a></p>
+    			</div>
+  			</div>
+  		<% } }) %>
+  		</div>		
+		</div>
+
+
+
+
+	<script   src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.0/jquery.waypoints.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.0/shortcuts/inview.min.js"></script>
+	
+	<script src="https://cdn.jsdelivr.net/scrollreveal.js/3.1.4/scrollreveal.min.js"></script>
+	<!-- <script type="text/javascript" src="js/star-rating.min.js"></script> -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+	<script type="text/javascript" src="/js/artist.js"></script>
+	<% var check=allArtists[allArtists.length-1] %>
+	<% if(check=="#dj"){ %>
+	<script type='text/javascript'>
+	$('html, body').animate({ scrollTop: $("<%= check %>").offset().top }, 2000);
+	</script>
+	<% } %>
+	
+
+<%include ../partials/footer.ejs%>

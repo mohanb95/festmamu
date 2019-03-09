@@ -1,0 +1,120 @@
+.item{
+	padding-left: 79px;
+	height: 400px;
+}
+
+.main-name{
+    color: white;
+}
+
+
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 50%;
+      margin: auto;
+  }
+
+
+.fb-profile img.fb-image-lg{
+    z-index: 0;
+    width: 100%;  
+    margin-bottom: 10px;
+}
+
+.fb-image-profile
+{
+    margin: 0px 10px 0px 0px;
+    z-index: 9;
+    width: 40%; 
+    height: 40%;
+}
+nav{
+background-color: blue;
+}
+
+.nav-img{
+	width: 50px;
+	height: 50px;
+	padding: 2px;
+}
+#name{
+	/*color:white;*/
+	font-size: 30px;
+	font-weight: 500;
+	/*margin-top: 20px;*/
+	/*margin-bottom: 10px;*/
+	/*left: 545px;*/
+	position: relative;
+	transition: all 1.3s ease;
+}
+.hd{
+	display: none;
+}
+.msg{
+	background: #3f51b5;
+	transition: all 2.3s ease;	
+}
+.call{
+	background: #9c27b0;
+}
+
+
+
+
+
+
+.togg{
+  color: #9696a0;
+  border-right: 1px solid black;
+    display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  overflow: hidden;
+}
+.togg:before{
+	content: "";
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  right: 50%;
+  bottom: 0;
+  background: #2098d1;
+  height: 4px;
+  -webkit-transition-property: left, right;
+  transition-property: left, right;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.togg:hover:before, .togg:focus:before, .togg:active:before {
+  left: 0;
+  right: 0;
+}
+
+.select{
+	color: black;
+	border-bottom: 3px solid #2098d1;
+}
+
+.soundcloudWidget{
+	height: 500px;
+}
+
+.Overview{
+  font-size: 20px;
+  font-family: MuseoSans_500;
+	height: 500px;
+	background:#4c4c63;
+	color: white;
+}
+.Overview div{
+  font-family: MuseoSans_500;
+  font-size: 20px;
+}

@@ -1,0 +1,242 @@
+<% include ../partials/header.ejs %>
+<link rel="stylesheet" type="text/css" href="/stylesheets/artist.css">
+<% include ../partials/navbar%>
+<form class="form-horizontal" action="/artist/standup/new" method="POST">
+<fieldset>
+
+<!-- Form Name -->
+<legend>STAND UP</legend>
+
+<!-- Name-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="name">Name</label>  
+  <div class="col-md-4">
+  <input id="name" name="name" type="text" placeholder="Your Name" class="form-control input-md" required="">
+    
+  </div>
+</div>
+
+<!-- Stand up stage name-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="standup_name">Stage Name</label>  
+  <div class="col-md-4">
+  <input id="standup_name" name="standup_name" type="text" placeholder="Stage Name" class="form-control input-md">
+    
+  </div>
+</div>
+
+<!-- Select year of start -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="year">Year of start</label>
+  <div class="col-md-2">
+    <select id="year" name="year" class="form-control">
+        <option selected disabled>When did you start?</option>
+        <% for (i = 1900; i <= 2016; i++){ %>
+                <option value=<%= i %>><%= i %></option>
+        <%   } %>
+    </select>
+  </div>
+</div>
+
+<!-- Select experience -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="exp">Experience</label>
+  <div class="col-md-2">
+    <select id="exp" name="exp" class="form-control">
+        <option selected disabled>Stage Performances</option>
+        <% for (i = 1; i <= 20; i++){ %>
+                <option value="<%= i %>"><%= i %></option>
+        <%   } %>
+        <option value="21+">21+</option>
+      <!--<option value="1">1-5</option>-->
+      <!--<option value="2">6-10</option>-->
+      <!--<option value="3">11-15</option>-->
+      <!--<option value="4">15-20</option>-->
+    </select>
+  </div>
+</div>
+
+<!-- Tag line-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="tag">Tag line</label>  
+  <div class="col-md-5">
+  <input id="tag" name="tag" type="text" placeholder="Tag" class="form-control input-md">
+    
+  </div>
+</div>
+
+<!-- Genres of Standup -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="genre">Genre</label>
+  <div class="col-md-6">
+    <div class="col-md-4">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Alternative Comedy" name="genre[]">Alternative Comedy
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Black/Dark Comedy" name="genre[]">Black/Dark Comedy 
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Blue Comedy" name="genre[]">Blue Comedy
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Character Comedy" name="genre[]">Character Comedy
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Cringe Comedy" name="genre[]">Cringe Comedy
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Deadpan Comedy" name="genre[]">Deadpan Comedy
+        </label>
+      </div>
+    </div>
+      <div class="col-md-4">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="Improvisational Comedy" name="genre[]">Improvisational Comedy 
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="Insult Comedy" name="genre[]">Insult Comedy
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="Mockumentary" name="genre[]">Mockumentary
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="Musical Comedy" name="genre[]">Musical Comedy
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="Observational Comedy" name="genre[]">Observational Comedy 
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="Physical Comedy" name="genre[]">Physical Comedy 
+          </label>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="Prop Comedy" name="genre[]">Prop Comedy 
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="Spoof" name="genre[]">Spoof
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="Sitcom" name="genre[]">Sitcom
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="Sketch" name="genre[]">Sketch
+          </label>
+        </div>
+        <div class="checkbox">
+          <label> 
+            <input type="checkbox" value="Surreal Comedy" name="genre[]">Surreal Comedy
+          </label>
+        </div>
+        <div class="checkbox">
+          <label> 
+            <input type="checkbox" value="Topical Comedy/Satire" name="genre[]">Topical Comedy/Satire
+          </label>
+        </div>
+        <div class="checkbox">
+          <label> 
+            <input type="checkbox" value="Wit/Word Play" name="genre[]">Wit/Word Play
+          </label>
+        </div>
+      </div>
+  </div>
+  </div>
+</div>
+
+<!-- Pricing of Stand up-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="price">Pricing per hour</label>
+  <div class="col-md-2">
+    <div class="input-group">
+      <span class="input-group-addon">Rs.</span>
+      <input id="price" name="price" class="form-control" placeholder="INR" type="text">
+    </div>
+    <p class="help-block">help</p>
+  </div>
+</div>
+
+<!-- Description about Stand up -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="description">Description</label>
+  <div class="col-md-4">                     
+    <textarea class="form-control" id="description" name="desc">More about the Stand up</textarea>
+  </div>
+</div>
+
+<!-- Link-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="link">Website/Blog</label>  
+  <div class="col-md-4">
+  <input id="link" name="link" type="text" placeholder="Your link" class="form-control input-md">
+  </div>
+</div>
+<!--facebook-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="fb-link">Facbook Page</label>  
+  <div class="col-md-4">
+  <input id="fb-link" name="fb_link" type="text" placeholder="Link of facebook page" class="form-control input-md">
+  </div>
+</div>
+<!--soundcloud-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="sc-link">SoundCloud</label>  
+  <div class="col-md-4">
+  <input id="sc-link" name="sc_link" type="text" placeholder="Link of SoundCloud" class="form-control input-md">
+  </div>
+</div>
+<!--youtube-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="yt-link">youtube channel</label>  
+  <div class="col-md-4">
+  <input id="yt-link" name="yt_link" type="text" placeholder="Link of youtube channel" class="form-control input-md">
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="imageuploader">Upload Your images</label>  
+<%include ../partials/fileupload.ejs%>
+</div>
+<!-- Submit -->
+<div class="form-group">
+    <label class="col-md-4 control-label" for="submit"></label>
+  <div class="col-md-5">
+    <button id="submit" name="submit" class="btn btn-primary">Submit</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+
+<%include ../partials/script.ejs%>
+<%include ../partials/footer.ejs%>

@@ -1,0 +1,113 @@
+<% include ../partials/header.ejs %>
+
+<% include ../partials/navbar%>
+<link rel="stylesheet" type="text/css" href="/stylesheets/artist.css">
+<form class="form-horizontal" action="/artist/headliner/new" method="POST">
+<fieldset>
+
+<!-- Form Name -->
+<legend >HEADLINER</legend>
+
+<!-- Name-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="name">Name</label>  
+  <div class="col-md-4">
+  <input id="name" name="name" type="text" placeholder="Your Name" class="form-control input-md" required="">
+    
+  </div>
+</div>
+
+<!-- HEADLINER stage name-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="head_name">Stage Name</label>  
+  <div class="col-md-4">
+  <input id="head_name" name="head_name" type="text" placeholder="Stage Name" class="form-control input-md">
+    
+  </div>
+</div>
+
+<!-- Select year of start -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="year">Year of start</label>
+  <div class="col-md-2">
+    <select id="year" name="year" class="form-control">
+        <option selected disabled>When did you start?</option>
+        <% for (i = 1900; i <= 2016; i++){ %>
+                <option value=<%= i %>><%= i %></option>
+        <%   } %>
+    </select>
+  </div>
+</div>
+
+<!-- Select experience -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="exp">Experience</label>
+  <div class="col-md-2">
+    <select id="exp" name="exp" class="form-control">
+        <option selected disabled>Stage Performances</option>
+        <% for (i = 1; i <= 20; i++){ %>
+                <option value="<%= i %>"><%= i %></option>
+        <%   } %>
+        <option value="21+">21+</option>
+      <!--<option value="1">1-5</option>-->
+      <!--<option value="2">6-10</option>-->
+      <!--<option value="3">11-15</option>-->
+      <!--<option value="4">15-20</option>-->
+    </select>
+  </div>
+</div>
+
+<!-- Tag line-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="tag">Tag line</label>  
+  <div class="col-md-5">
+  <input id="tag" name="tag" type="text" placeholder="Tag" class="form-control input-md">
+    
+  </div>
+</div>
+
+
+<!-- Pricing of HEADLINER-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="price">Pricing per hour</label>
+  <div class="col-md-2">
+    <div class="input-group">
+      <span class="input-group-addon">Rs.</span>
+      <input id="price" name="price" class="form-control" placeholder="INR" type="text">
+    </div>
+    <p class="help-block">help</p>
+  </div>
+</div>
+
+<!-- Description about HEADLINER -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="description">Description</label>
+  <div class="col-md-4">                     
+    <textarea class="form-control" id="description" name="desc" placeholder="Tell us more about who you are"></textarea>
+  </div>
+</div>
+
+<!-- Link-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="link">Website/Blog</label>  
+  <div class="col-md-4">
+  <input id="link" name="link" type="text" placeholder="Your link" class="form-control input-md">
+  </div>
+</div>
+<div class="form-group">
+  <label class="col-md-4 control-label" for="imageuploader">Upload Your images</label>  
+<%include ../partials/fileupload.ejs%>
+</div>
+<!-- Submit -->
+<div class="form-group">
+    <label class="col-md-4 control-label" for="submit"></label>
+  <div class="col-md-5">
+    <button id="submit" name="submit" class="btn btn-primary">Submit</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+
+<%include ../partials/script.ejs%>
+<%include ../partials/footer.ejs%>

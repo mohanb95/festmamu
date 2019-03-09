@@ -1,0 +1,41 @@
+<link rel="stylesheet" type="text/css" href="/stylesheets/rating.min.css">
+<div class="modal fade" id="add" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Add your comments about ....</h4>
+      </div>
+      <div class="modal-body">
+      	<div class="frm">
+      		<div class="form-group">
+			    <label for="exampleInputEmail1">Comment:</label>
+			    <div class="ui rating"></div>
+			    <textarea class="form-control" id="comment_content" placeholder="enter your text"></textarea>
+		  		</div>
+		  		<% if(!currentUser){ %>
+				  		<input type="text" id="uid" placeholder="Enter Your Name" value="5916cfa7df2fbb0f80e7361b" style="display:none">  	
+				  		<h4>login to show your name as author of comments</h4>
+				  	<%  } %>
+      	</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" id="closeModal">Close</button>
+        <button type="button" class="btn btn-primary" onclick="addcom()">Add comment</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<link rel="stylesheet" type="text/css" href="/stylesheets/comments.css">
+<div class="row ">
+	<div class=" col-md-offset-2 ">
+		<div class="col-md-9 white-back " id="comi">
+			<h2 style="margin-top:5px;">Comments
+			<a class="btn btn-success col-offset-3" style="float:right;" data-toggle="modal" data-target="#add"> ADD Comment</a>
+			</h2>
+		</div>
+	</div>
+</div>
+
+

@@ -1,0 +1,290 @@
+
+body{
+	background: #E9EAED;
+}
+#service-color{
+	
+	color: white;
+	margin: 0px;
+	padding: 0px;
+	transition: all 1s ease;
+}
+
+h2,h3{
+	margin: 0px;
+	padding-top: 5em;
+	color: #000000;
+}
+h3{
+	padding-top: 6.5em;
+}
+h4{
+	margin: 0px;
+}
+#description{
+	color: white;
+	font-size: 2em;
+	z-index: 10px;
+}
+.btn{
+	opacity: 1;
+	z-index: 2;
+	transition: all 1s ease-in-out;
+	color: blue;
+	position: absolute; 
+	left: 250px;
+
+}
+#stage{
+	background: #9068be;
+}
+.img{
+	 position: relative;
+	background: #9068be;
+	background:rgba(0,0,0,0.4);
+
+}
+.img:before{
+	
+	  content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    /*z-index: 1;*/
+    /*background: rgba(0,0,0,0.4);*/
+    opacity: .4;
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
+
+}
+.up{
+
+	-webkit-box-shadow: 26px 22px 52px -2px rgba(0,0,0,0.75);
+	-moz-box-shadow: 26px 22px 52px -2px rgba(0,0,0,0.75);
+	box-shadow: -26px 22px 52px -2px rgba(0,0,0,0.75);
+	/*margin-right: 8px;*/
+	margin-bottom: 4px;
+}
+#sponsor{
+	background: #e62739;
+	
+}
+#stage.img:before{
+	background-image: url('http://cdn.pcwallart.com/images/tiesto-concert-crowd-wallpaper-4.jpg');
+}
+#sponsor.img:before {
+	background-image: url('http://www.kdpr.com.au/wp-content/uploads/2015/03/sponsorship.png');
+}
+#dj.img:before{
+	background-image: url('https://akadjblaze.files.wordpress.com/2013/01/704689_415721191833247_604565919_o.jpg');
+}
+#makeT.img:before{
+	background-image: url('http://image.dhgate.com/albu_341417082_00/1.0x0.jpg');
+}
+#dj{
+	background: #173e43;
+}
+#makeT{
+
+	background: #3fb0ac;
+
+}
+#festfeed{
+	background: white;
+	color: #3b5998;
+	transition: all 0.1s ease;
+	min-height: 80%;
+
+
+}
+.navm{
+	margin-bottom: 0px;
+}
+.row{
+	margin: 0px;
+	padding: 0px;
+	font-family: 'Oswald', sans-serif;
+	font-size: 2em;
+
+}
+.container-fluid{
+	margin: 0px;
+	padding: 0px;	
+}
+.st_act{
+	font-size: .6em;
+}
+.vis{
+	display: none;
+}
+.col-md-8,.col-xs-8{
+	margin: 0px;
+	padding: 0px;
+	transition: all 1s ease;
+
+}
+.col-md-12,.col-xs-12{
+	margin: 0px;
+	padding: 0px;
+	transition: all 1s ease;
+
+}
+.col-md-offset-3,.col-xs-offset-3{
+		transition: all 1s ease-in-out;
+
+}
+.active{
+	display: none;
+}
+.pa{
+	padding-top: 100%;
+}
+.abt{
+	background: black;
+	color: white;
+	height: 300px;
+}
+.what{
+	color: white;
+	padding: 0px;
+	margin: 0px;
+}
+.wa{
+	background: black;
+	height: 6.5%;
+}
+hr { 
+  height: 30px; 
+  border-style: solid; 
+  border-color: #8c8b8b; 
+  border-width: 1px 0 0 0; 
+  border-radius: 20px; 
+} 
+hr:before { 
+  display: block; 
+  content: ""; 
+  height: 30px; 
+  margin-top: -31px; 
+  border-style: solid; 
+  border-color: #8c8b8b; 
+  border-width: 0 0 1px 0; 
+  border-radius: 20px; 
+}
+.he{
+	min-height: 80%;
+}
+.ff{
+	min-height: 80%
+}
+@-moz-document url-prefix() {
+	#service-color{
+		height: 80%;
+	}	
+	.ff{
+		min-height: 80%
+	}
+
+}
+.d a:hover {
+  opacity: .5;
+}
+
+
+.chat{
+			position: fixed;
+		    top: 100px;
+		    right: 10%;
+		    height: 0px;
+		    width: 0px;
+		    z-index: 100;
+		    background-color: white;
+		}
+		#go{
+			position: fixed;
+		    top: 100px;
+		    left:86%;
+		}
+		.btn-circle {
+		  width: 30px;
+		  height: 30px;
+		  text-align: center;
+		  padding: 6px 0;
+		  font-size: 12px;
+		  line-height: 1.428571429;
+		  border-radius: 15px;
+		}
+		.btn-circle.btn-lg {
+		  width: 50px;
+		  height: 50px;
+		  padding: 10px 16px;
+		  font-size: 18px;
+		  line-height: 1.33;
+		  border-radius: 25px;
+		}
+		.talk-bubble {
+			margin: 40px;
+		  /*display: inline-block;*/
+		  /*position: relative;*/
+			/*width: 200px;*/
+			/*height: auto;*/
+			background-color: white;
+		}
+		.tri-right.border.left-top:before {
+			content: ' ';
+			position: absolute;
+			width: 0;
+			height: 0;
+		  right: -40px;
+			left : auto;
+		  top: -8px;
+			bottom: auto;
+			border: 32px solid;
+			border-color: #666 transparent transparent transparent;
+		}
+		.tri-right.left-top:after{
+			content: ' ';
+			position: absolute;
+			width: 0;
+			height: 0;
+		  right: -20px;
+			left : auto;
+		  top: 0px;
+			bottom: auto;
+			border: 22px solid;
+			border-color: #3a96dd transparent transparent transparent;
+		}
+		
+		.bubble .lwc-button-icon{
+			width: 70px;
+		}
+		
+		
+		
+		
+		:root .swc .message[data-messagetype=LwcFile] .content, :root .swc .message[data-messagetype=LwcImage] .content, :root .swc .message[data-messagetype=UserMessage] .content{
+		background-color: #403e3e;
+	}
+	html.swc-chat{
+		color: white;
+	}
+	:root .swc .message[data-messagetype=LwcFile].me .content, :root .swc .message[data-messagetype=LwcImage].me .content, :root .swc .message[data-messagetype=UserMessage].me .content{
+		background-color: #314750;
+	}
+	:root .swc .swc-header{
+		background:#000000;
+		color:white;
+	}
+	.messages{
+		background: black;
+	}
+	:root .swc chat-input, :root .swc dl-chat-input{
+		background:black;
+	}

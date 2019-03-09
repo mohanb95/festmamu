@@ -1,0 +1,138 @@
+<%include ../partials/header.ejs%>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+<script src="/js/slider.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/stylesheets/slider.min.css">
+
+<title>Stages</title>
+<link rel="stylesheet" type="text/css" href="/stylesheets/stage_list.css">
+<%include ../partials/navbar.ejs%>
+		<div class="container">
+			<div class="col-md-offset-3">
+				<ul class="nav nav-tabs">
+				  <li role="presentation" class="active stage"><a href="#">Stage</a></li>
+				  <li role="presentation" class="sound"><a href="#">Sound</a></li>
+				  <li role="presentation" class="tent"><a href="#">Tents</a></li>
+				</ul>
+			</div>	
+		</div>	
+<div class="container-fluid" id = "test">
+		<div class="row">
+			<div class="col-md-3 col-xs-3" id="filter">
+				<h5 class="text-center">refined search</h5>
+				<hr>
+				<div class=" ">
+					<input class="search col-md-12 col-xs-12 " placeholder="Search" />
+				  
+				  <div class="col-md-12 col-xs-12">
+				  	<b> 10</b> 
+				  	<input id="ex2" type="text" class="span2" value="" data-slider-min="10" data-slider-max="10000" data-slider-step="5" data-slider-value="[250,1200]" /> 
+				  	<b> 1000</b>
+				  </div>
+				</div>
+
+			</div>
+			<div class="col-md-6 col-xs-6 main hid stage-data">
+				
+				<h1 class="text-center">Stage listing</h1>
+				<hr>
+				<div class="row"><!--  range bubble -->
+				<h5>Sort By: </h5>
+				<div class="row" id="op_main_row">
+						<div class="col-md-6 col-xs-6">
+							<div class="col-md-5 col-xs-5 option text-center sort" data-sort="Comp_Name"   onclick="activate(this)">
+								<span class="btn">Name</span>
+							</div>
+							<div class="col-md-5 col-xs-5 option text-center sort" data-sort="cost"  onclick="activate(this)">
+								<span class="btn">Cost</span>
+							</div>
+						</div>
+				<!--<ul class="nav nav-pills col-md-3 col-md-offset-1" >-->
+					<!--<button class="sort btn btn-primary btn-sm col-md-12" data-sort="Comp_Name">Name</button>-->
+				  <!--<button class="sort btn btn-primary btn-sm col-md-12" data-sort="cost">cost</button>-->
+				<!--  <li role="presentation" class="active sort" data-sort="Comp_Name" onclick="activate(this)"><a href="#">Name</a></li>-->
+				<!--  <li role="presentation" class="sort" data-sort="cost" onclick="activate(this)"><a href="#">Cost</a></li>-->
+				<!--</ul>-->
+					<a class="range-bubble col-md-4 col-xs-4 text-center" style="display:none;    margin-top: 7px;">
+						$ <span class='lower'></span>-$ <span class="upper"></span> <i class="fa fa-times-circle close" onclick="closeRange()"></i>
+					</a>
+				</div>
+				<hr>
+				
+				
+				
+				
+					<img src="images/ajax-loader.gif" class="ajaxloader">
+				  
+				
+				  <ul class="list"></ul>
+				
+				
+    			<a href="stage/new" class="round-button ">+</a>
+    				
+			</div>
+			<div class="col-md-6 main hid sound-data" >
+				<h1 class="text-center">Sound listing</h1>
+				<a href="sound/new" class="round-button hid">+</a>
+				<hr>
+				<div><!--  range bubble -->
+					"range: "
+					<a class="range-bubble">
+						$ <span class='lower'></span>-$ <span class="upper"></span> <i class="fa fa-times-circle close"></i>
+					</a>
+				</div>
+				<hr>
+			</div>
+			<div class="col-md-6 main hid tent-data" >
+				<h1 class="text-center">Tent listing</h1>
+				<a href="tent/new" class="round-button hid">+</a>
+				<hr>
+				<div><!--  range bubble -->
+					"range: "
+					<a class="range-bubble">
+						$ <span class='lower'></span>-$ <span class="upper"></span> <i class="fa fa-times-circle close"></i>
+					</a>
+				</div>
+				<hr>
+			</div>
+		</div>
+	</div>
+	
+	
+	
+	
+	<%include ../partials/script.ejs%>
+	<script type="text/javascript" src="js/stage_list.js"></script>
+<%include ../partials/footer.ejs%>
+
+
+
+
+
+
+
+
+
+
+
+<!--<% stage.forEach(function(stage){ %>-->
+<!--    				<div class="col-md-12" id="stage1">-->
+<!--    					<span>-->
+<!--    						<span class="col-md-3">-->
+<!--    							<a href="stage/<%= stage._id%>"><img src="https://placehold.it/350x350" class="img-responsive thumbnail"></a>-->
+<!--    						</span>-->
+<!--    						<span>-->
+<!--    							<h2><%= stage.Comp_Name%></h2>-->
+<!--    							<h5>cost:<%=stage.cost.Cost%></h5>-->
+<!--    							<p>contact:-->
+<!--    								<p class="cont">-->
+<!--    									<%=stage.Location.Contact1%>-->
+<!--    								</p>-->
+<!--    							</p>-->
+<!--    							<%if(stage.Location.Contact2!=null)%>-->
+<!--    							    <p class="cont"><%=stage.Location.Contact2%></p>-->
+<!--    							<a href="stage/info" id="detail">for more details <i class="fa fa-caret-right"></i></a>-->
+<!--    							< stage._id%>-->
+<!--    						</span>-->
+<!--    					</span>-->
+<!--    				</div>-->
+<!--    			<% })%>-->

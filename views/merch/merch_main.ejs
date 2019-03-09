@@ -1,0 +1,87 @@
+<%include ../partials/header.ejs%>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/merch_main.css">
+	<title>merch main</title>
+	<%include ../partials/navbar.ejs%>
+	<div class="container-fluid">
+		<div class="row reveal">
+			<div class="fixed">
+				<div class="col-md-offset-6 col-xs-offset-6 col-md-5 col-xs-5 pd-top pd-ri">
+					<p class="design des1">Design Your Own T's or </p>
+					<p class="design des2">Upload Your Design</p>
+					<div class="top2 reveal-9s">
+						<button type="button" class="btn btn-danger btn-lg col-md-offset-2 col-xs-offset-2" onclick="design()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Design</button>
+						<button type="button" class="btn btn-info btn-lg"><i class="fa fa-cloud-upload" aria-hidden="true"></i> Upload Design</button>
+					</div>
+					<div id="trigger"></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="not reveal-1">
+			<div class="presets row">
+				<p class="col-md-12 col-xs-12"><h4 class="text-center pre">Some Popular designs for T's</h4></p>
+			</div>
+			<div class="row col-md-offset-3 col-xs-offset-3">
+				<section class="card-container col-md-2 col-xs-2">
+					<div id="card" class="as">
+					    <figure class="front"></figure>
+						<figure class="back"></figure>
+					</div>
+				</section>
+				<section class="card-container col-md-2 col-xs-2">
+					<div id="card" class="c1">
+					    <figure class="front"></figure>
+						<figure class="back"></figure>
+					</div>
+				</section>
+				<section class="card-container col-md-2 col-xs-2">
+					<div id="card" class="c1">
+					    <figure class="front"></figure>
+						<figure class="back"></figure>
+					</div>
+				</section>
+			</div>
+			<div class="row col-md-offset-3 col-xs-offset-3">
+				<section class="card-container col-md-2 col-xs-2">
+					<div id="card" class="c1">
+					    <figure class="front"></figure>
+						<figure class="back"></figure>
+					</div>
+				</section>
+				<section class="card-container col-md-2 col-xs-2">
+					<div id="card" class="c1">
+					    <figure class="front"></figure>
+						<figure class="back"></figure>
+					</div>
+				</section>
+				<section class="card-container col-md-2 col-xs-2">
+				<div id="card" class="c1">
+				    <figure class="front"></figure>
+					<figure class="back"></figure>
+				</div>
+				</section>
+			</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="fixed2 reveal">
+				<div class="col-md-5 col-xs-5 pd-top pd-lef">
+					<p class="design-p des1">Design Your Own pullovers or </p>
+					<p class="design-p des2 ">Upload Your Design</p>
+					<div class="top2 reveal-9s">
+						<button type="button" class="btn btn-danger btn-lg col-md-offset-2 col-xs-offset-2" onclick="design"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Design</button>
+						<button type="button" class="btn btn-info btn-lg"><i class="fa fa-cloud-upload" aria-hidden="true"></i> Upload Design</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		function design(){
+			document.location.href+="/design";
+		}
+	</script>
+	<%include ../partials/script.ejs%>
+	<script type="text/javascript" src="/js/merch_main.js"></script>
+<%include ../partials/footer.ejs%>

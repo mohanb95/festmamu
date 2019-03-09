@@ -1,0 +1,102 @@
+<%include ../partials/header.ejs%>
+    <title>Stage info</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/stage_info.css">
+	<%include ../partials/navbar.ejs%>
+	<div class="contanieri-fliud">
+		<div class="row reveal">
+			<div class="col-md-4">
+				<div class="row white-back text-center">
+					<div class="col-md-12 reveal">
+						image shuffler
+						<img src="http://www.queenshall.co.uk/userfiles/Stage%20Dimensions.jpg" class="img-responsive center-block" id="img">	
+						<button type="button" class="btn btn-primary prev" data-toggle="button" aria-pressed="false" autocomplete="off">
+		 					<
+						</button>
+						<button type="button" class="btn btn-primary next" data-toggle="button" aria-pressed="false" autocomplete="off">
+		 					>
+						</button>	
+					</div>		
+				</div>
+				<div class="row white-back">
+					<h4><em>Description:</em></h4>
+					<div class="triangle">
+						
+						<ul>
+							<li>
+								<%=stage.des_dimensions%>
+							</li>
+							<li>
+								<%=stage.des_types%> 
+							</li>
+						</ul>
+						
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-md-6">
+				<div class="row white-back">
+					<h3 class="name"><%=stage.Comp_Name%></h3>
+				</div>
+				<div class="row white-back">
+					<!--<div class="row sub-details">-->
+					<!--	<div class="col-sm-2">-->
+					
+					<!--		<span class="glyphicon glyphicon-time"> <descrip.time%> </span>-->
+					<!--	</div>-->
+					<!--	<div class="col-sm-3">-->
+					<!--		<span class="glyphicon glyphicon-eye-open views"> <descrip.views%> VIEWS</span>-->
+					
+					<!--	</div>-->
+					<!--</div>-->
+					<hr class="style1">
+					<div>
+						<h5>Cost Details</h5>
+						<div id="costing">
+							<% if(stage.cost.Cost!=null){%>
+								<%= stage.cost.Cost%>
+								<% } else {%>
+								<span>no details given</span>
+								<% }%>
+						</div>
+					</div>
+					<div class="product triangle">
+						<h4>Vendor Details</h4>
+						
+						<ul>
+							<li>
+								location:	 <span><%=stage.Location.City%>, <%=stage.Location.State%></span>
+							</li>
+							<li>Address:   	 <span>		<%= stage.Location.Add_Line1%>		</span></li>
+						
+							<li>
+								Contact details:
+								<ul>
+									<li><%=stage.Location.Contact1%></li>
+									<li><%=stage.Location.Contact2%></li>
+								</ul>
+							</li>
+						</ul>
+
+					</div>
+					<hr class="style1">
+					<div class="row call">
+						<div>
+							<button type="button" class="btn btn-info col-md-5"><i class="glyphicon glyphicon-envelope"> <span>Message</span></i></button>
+						</div>
+						<div>
+							<button type="button" class="btn btn-danger col-md-6"><i class="glyphicon glyphicon-earphone"> <span>Call</span></i></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="/js/rating.min.js"></script>
+		<%include ../partials/comments.ejs %>
+		<script type="text/javascript" src="/js/stage_comments.js"></script>
+		
+	</div>
+	<%include ../partials/script.ejs%>
+	
+	<script type="text/javascript" src="/js/stage_info.js"></script>
+	<%include ../partials/footer.ejs%>

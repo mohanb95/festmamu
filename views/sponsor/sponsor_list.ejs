@@ -1,0 +1,106 @@
+<%include ../partials/header.ejs%>
+<link rel="stylesheet" type="text/css" href="/stylesheets/sponsor_list.css">
+			<style type="text/css">
+			#block{
+				/*background: #DAA521;*/
+				 background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(218, 165, 33, .15)), to(rgba(0, 0, 0, .25))), -webkit-gradient(linear, left top, right bottom, color-stop(0, rgba(218, 165, 33, 1)), color-stop(0.8, rgba(218, 165, 33, .1)), color-stop(0.501, rgba(218, 165, 33, 1)), color-stop(1, rgba(218, 165, 33, 1)));
+			}
+		</style>
+		<%include ../partials/navbar.ejs%>
+<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-2" id="filter">
+					<h5 class="text-center">refined search</h5>
+					<hr>
+					<div class=" ">
+					
+					</div>
+				</div>
+				<div class="col-md-8 main">
+					<div class="row" id="op_main_row">
+						<div class="col-md-12">
+							<div class="col-md-2 option text-center select" id="gold">
+								<span class="btn">Gold</span>
+							</div>
+							<div class="col-md-2 option text-center" id="silver">
+								<span class="btn">Silver</span>
+							</div>
+							<div class="col-md-2 option text-center" id="bronze">
+								<span class="btn">Bronze</span>
+							</div>
+						</div>
+					</div>
+					<div class="row" id="category">
+						<div class="col-md-12">
+							<div class="col-md-3 sp blur_effect " id="block">
+								<ul class="block_text">
+									<span class="block_header text-center">Title sponsor</span>
+									<li>min cost</li>
+									<li>banner size</li>
+									<li>
+										<ul>optional clause
+											<li>counter size</li>
+											<li>the number of mentions</li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+							<div class="col-md-3 sp blur_effect " id="block">
+								<ul class="block_text">
+									<span class="block_header text-center">associate sponsor</span>
+									<li>min cost</li>
+									<li>banner size</li>
+									<li>
+										<ul>optional clause
+											<li>counter size</li>
+											<li>the number of mentions</li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+							<div class="col-md-3 sp blur_effect " id="block">
+								<ul class="block_text">
+									<span class="block_header text-center">media sponsor</span>
+									<li>min cost</li>
+									<li>banner size</li>
+									<li>
+										<ul>optional clause
+											<li>counter size</li>
+											<li>the number of mentions</li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+							<div class="col-md-3 sp blur_effect " id="block">
+								<ul class="block_text">
+									<span class="block_header text-center">beverage sponsor</span>
+									<li>min cost</li>
+									<li>banner size</li>
+									<li>
+										<ul>optional clause
+											<li>counter size</li>
+											<li>the number of mentions</li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+							<div class="col-md-3 sp blur_effect " id="block">
+								<ul class="block_text">
+									<span class="block_header text-center">hospitality sponsor</span>
+									<li>min cost</li>
+									<li>banner size</li>
+									<li>
+										<ul>optional clause
+											<li>counter size</li>
+											<li>the number of mentions</li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/sponsor_list.js"></script>
+<%include ../partials/footer.ejs%>

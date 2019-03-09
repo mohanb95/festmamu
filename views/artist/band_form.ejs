@@ -1,0 +1,460 @@
+<% include ../partials/header.ejs %>
+<link rel="stylesheet" type="text/css" href="/stylesheets/artist.css">
+<% include ../partials/navbar%>
+<form class="form-horizontal" action="/artist/band/new" method="POST">
+<fieldset>
+
+<!-- Form Name -->
+<legend>Band</legend>
+
+<!-- Name-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="name">Name</label>  
+  <div class="col-md-4">
+  <input id="name" name="name" type="text" placeholder="Your Name" class="form-control input-md" required="">
+    
+  </div>
+</div>
+
+<!-- Band stage name-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="band_name">Stage Name</label>  
+  <div class="col-md-4">
+  <input id="band_name" name="band_name" type="text" placeholder="Stage Name" class="form-control input-md">
+    
+  </div>
+</div>
+
+<!-- Select year of start -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="year">Year of start</label>
+  <div class="col-md-2">
+    <select id="year" name="year" class="form-control">
+        <option selected disabled>When did you start?</option>
+        <% for (i = 1900; i <= 2016; i++){ %>
+                <option value=<%= i %>><%= i %></option>
+        <%   } %>
+    </select>
+  </div>
+</div>
+
+<!-- Select experience -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="exp">Experience</label>
+  <div class="col-md-2">
+    <select id="exp" name="exp" class="form-control">
+        <option selected disabled>Stage Performances</option>
+        <% for (i = 1; i <= 20; i++){ %>
+                <option value="<%= i %>"><%= i %></option>
+        <%   } %>
+        <option value="21+">21+</option>
+      <!--<option value="1">1-5</option>-->
+      <!--<option value="2">6-10</option>-->
+      <!--<option value="3">11-15</option>-->
+      <!--<option value="4">15-20</option>-->
+    </select>
+  </div>
+</div>
+
+<!-- Tag line-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="tag">Tag line</label>  
+  <div class="col-md-5">
+  <input id="tag" name="tag" type="text" placeholder="Tag" class="form-control input-md">
+    
+  </div>
+</div>
+     
+
+<!-- Genres of Band -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="genre">Genre</label>
+  <div class="col-md-6">
+    <div class="col-md-3">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Acappella" name="genre[]">Acappella
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Acoustic" name="genre[]">Acoustic 
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Alternative" name="genre[]">Alternative
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Alternative Rock" name="genre[]">Alternative Rock
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Ambient" name="genre[]">Ambient 
+        </label>
+      </div>
+    <div class="checkbox">
+          <label>
+            <input type="checkbox" value="Americana" name="genre[]">Americana 
+
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="Avante Garde" name="genre[]">Avante Garde  
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="Blues" name="genre[]">Blues  
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="Classic Rock" name="genre[]">Classic Rock 
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="Comedy" name="genre[]">Comedy 
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="Country" name="genre[]">Country 
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="Electronica" name="genre[]">Electronica 
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="ElectroPop" name="genre[]">ElectroPop 
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="Experimental Rock" name="genre[]">Experimental Rock  
+          </label>
+        </div>
+        <div class="checkbox">
+          <label> 
+            <input type="checkbox" value="Folk" name="genre[]">Folk 
+          </label>
+        </div>
+        </div>
+      <div class="col-md-3">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Garage" name="genre[]">Garage  
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Groove" name="genre[]">Groove 
+ 
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Grunge" name="genre[]">Grunge 
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Hard Rock" name="genre[]">Hard Rock 
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Hip-Hop" name="genre[]">Hip-Hop 
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Indie" name="genre[]">Indie 
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Indie Pop" name="genre[]">Indie Pop 
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Indie Punk" name="genre[]">Indie Punk 
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Indie Rock" name="genre[]">Indie Rock 
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="IndieElectro" name="genre[]">IndieElectro 
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Instrumental" name="genre[]">Instrumental 
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Jazz" name="genre[]">Jazz 
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Jazz Fusion" name="genre[]">Jazz Fusion 
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Lo-Fi" name="genre[]">Lo-Fi 
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Melodic Rock" name="genre[]">Melodic Rock 
+        </label>
+      </div>
+      </div>
+      <div class="col-md-3">
+        <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Metal" name="genre[]">Metal 
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Metalcore" name="genre[]">Metalcore 
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Modern Rock" name="genre[]">Modern Rock 
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="New Wave" name="genre[]">New Wave 
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Opera" name="genre[]">Opera 
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Paid Promo" name="genre[]">Paid Promo 
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Piano" name="genre[]">Piano 
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Pop" name="genre[]">Pop 
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Pop Punk" name="genre[]">Pop Punk 
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Pop Rock" name="genre[]">Pop Rock 
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Post Punk" name="genre[]">Post Punk 
+      
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Post-Punk Revival" name="genre[]">Post-Punk Revival 
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Post-Rock" name="genre[]">Post-Rock 
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="PowerPop" name="genre[]">PowerPop 
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Progressive" name="genre[]">Progressive 
+        </label>
+      </div>
+      </div>
+    <div class="col-md-3">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Progressive Metal" name="genre[]">Progressive Metal 
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Psychedelic" name="genre[]">Psychedelic 
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Psychobilly" name="genre[]">Psychobilly 
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Punk" name="genre[]">Punk 
+      
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Punk Rock" name="genre[]">Punk Rock 
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Reggae" name="genre[]">Reggae 
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Rock" name="genre[]">Rock 
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Rockabilly" name="genre[]">Rockabilly 
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Shoegaze" name="genre[]">Shoegaze 
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Singer/Songwriter" name="genre[]">Singer/Songwriter 
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Ska" name="genre[]">Ska 
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Soft Rock" name="genre[]">Soft Rock 
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Surf Pop" name="genre[]">Surf Pop 
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Swing" name="genre[]">Swing 
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Twee" name="genre[]">Twee 
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Violin-Laced Reggae Rock" name="genre[]">Violin-Laced Reggae Rock    
+        </label>
+      </div>
+        
+    </div>
+  </div>
+  </div>
+</div>
+
+<!-- Pricing of Band-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="price">Pricing per hour</label>
+  <div class="col-md-2">
+    <div class="input-group">
+      <span class="input-group-addon">Rs.</span>
+      <input id="price" name="price" class="form-control" placeholder="INR" type="text">
+    </div>
+    <p class="help-block">help</p>
+  </div>
+</div>
+
+<!-- Description about Band -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="description">Description</label>
+  <div class="col-md-4">                     
+    <textarea class="form-control" id="description" name="desc">More about the Band</textarea>
+  </div>
+</div>
+
+<!-- Link-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="link">Website/Blog</label>  
+  <div class="col-md-4">
+  <input id="link" name="link" type="text" placeholder="Your link" class="form-control input-md">
+  </div>
+</div>
+<!--facebook-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="fb-link">Facbook Page</label>  
+  <div class="col-md-4">
+  <input id="fb-link" name="fb_link" type="text" placeholder="Link of facebook page" class="form-control input-md">
+  </div>
+</div>
+<!--soundcloud-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="sc-link">SoundCloud</label>  
+  <div class="col-md-4">
+  <input id="sc-link" name="sc_link" type="text" placeholder="Link of SoundCloud" class="form-control input-md">
+  </div>
+</div>
+<!--youtube-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="yt-link">youtube channel</label>  
+  <div class="col-md-4">
+  <input id="yt-link" name="yt_link" type="text" placeholder="Link of youtube channel" class="form-control input-md">
+  </div>
+</div>
+<!-- Upload pics-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="imageuploader">Upload Your images</label>  
+<%include ../partials/fileupload.ejs%>
+</div>
+<!-- Submit -->
+<div class="form-group">
+    <label class="col-md-4 control-label" for="submit"></label>
+  <div class="col-md-5">
+    <button id="submit" name="submit" class="btn btn-primary">Submit</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+
+<%include ../partials/script.ejs%>
+<%include ../partials/footer.ejs%>

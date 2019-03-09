@@ -1,0 +1,93 @@
+<% include ./partials/header.ejs %>
+			<link rel="stylesheet" type="text/css" href="/stylesheets/index.css">
+			<style type="text/css"></style>
+			<title>festmamu main</title>
+			<% if(currentUser){ %>
+            	<% include ./partials/navbar.ejs %>
+            <% } %>
+            
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12 wa">
+			<h1 class="text-center what">Explore your options for a betteer event experience...</h1>
+		</div>
+	</div>
+	</div>
+          <div class="container-fluid">
+			<div class="row">
+				
+				<div class="col-md-1 col-xs-1" id="service-color">
+					<div class="he text-center" id="stage">
+							<h2 >Stage</h2>
+							<p class="vis text-center" id="description">
+							make use of the website to search through our various options and improve your choice index to selecting the best  ofer that  
+							most suitable offer for you and your fest. 
+						</p>
+						<a class="btn btn-default text-center active" href="stage" role="button">for More Details on pricing</a>
+					</div>	
+				</div>
+				<div class="col-md-1 col-xs-1" id="service-color">
+					<div class=" he  text-center" id="sponsor">
+						<h2>Sponsor</h2>
+						<p class="vis" id="description">
+							Choose from the different categories of sponsors to fund your expences in your fest. we provide three types of sponsors
+							
+						
+						</p>
+						<a class="btn btn-default text-center active" href="sponsor" role="button">for More Details on pricing</a>
+					</div>
+				</div>
+				<div class="col-md-1 col-xs-1" id="service-color">
+					<div class=" he text-center" id="dj">
+						<h2>Artists</h2>
+						<p class="vis" id="description">
+							Choose from various artists that have signed up with us.....
+						</p>
+						<a class="btn btn-default text-center active" href="/artist" role="button">for More Details on pricing</a>
+					</div>
+				</div>
+				<div class="col-md-1 col-xs-1" id="service-color">
+					<div class=" he  text-center" id="makeT">
+						<h2>Merchendise</h2>
+						<p class="vis" id="description">
+							check out the various merchendise that you can buy and customise accordiong to your fest.
+						
+						</p>
+						<a class="btn btn-default text-center active" href="/merch" role="button">for More Details on pricing</a>
+					</div>
+				</div>
+			
+				
+				<div class="ff col-md-8 col-xs-8">
+					<div id="festfeed">
+						<h4 class="text-center">Fest Feed</h4>
+						<hr>
+						<p><i class="fa fa-line-chart la"> fest 1</i></p>
+						<p><i class="fa fa-line-chart "> fest 1</i></p>
+						<p><i class="fa fa-line-chart "> fest 1</i></p>
+						<p><i class="fa fa-line-chart "> fest 1</i></p>
+						<p><i class="fa fa-line-chart "> fest 1</i></p>
+						<p><i class="fa fa-line-chart "> fest 1</i></p>
+						
+					</div>
+				</div>
+				
+			</div>
+			</div>
+			<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12 abt" style="top: -15px; transform: translateY(-2px) translateZ(0px);">
+					
+					<h1>About</h1>
+				</div>
+			</div>
+       </div>
+		</div>
+
+	
+	<span class="skype-button bubble " data-bot-id="cf79fde4-0886-4a5f-9388-5afbeb608ede"></span>
+<span class="skype-chat" data-theme="dark"></span>
+<script src="https://latest-swc.cdn.skype.com/sdk/v1/sdk.js"></script>
+		<%include ./partials/script.ejs%>
+		<script type="text/javascript" src="/js/index.js"></script>
+<% include ./partials/footer.ejs %>
